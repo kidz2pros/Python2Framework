@@ -1,5 +1,4 @@
 import pygame
-import abc
 import math
 
 
@@ -13,9 +12,7 @@ class Actor:
         self.display = pygame.transform.rotate(self.image, 0)
         self.world = None
 
-    @abc.abstractmethod
     def act(self):
-
         return
 
     def set_location(self, x, y):
@@ -24,13 +21,20 @@ class Actor:
 
     def turn(self, increment):
         self.rotation += increment
+        self.rotation = int(self.rotation)
         self.rotation %= 360
         self.rotate_image()
 
     def set_rotation(self, rotation):
+        rotation = int(rotation)
         if rotation != self.rotation:
             self.rotation = rotation
             self.rotate_image()
+
+    def turn_towards(self, x, y):
+        angle = math.atan2(y - self.y, x - self.x)
+        degrees = int(math.degrees(angle))
+        self.set_rotation(degrees)
 
     def set_image(self, image):
         self.image = image

@@ -1,5 +1,4 @@
 import pygame
-import abc
 
 
 class World:
@@ -19,7 +18,7 @@ class World:
         actor.added_to_world(self)
 
     def remove_actor(self, actor):
-        if(actor in self.actors):
+        if actor in self.actors:
             self.actors.remove(actor)
             actor.world = None
 
@@ -52,7 +51,6 @@ class World:
                 of_type.append(actor)
         return of_type
 
-    @abc.abstractmethod
     def act(self):
 
         return

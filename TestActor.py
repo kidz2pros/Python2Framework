@@ -15,3 +15,7 @@ class TestActor(Actor):
             self.set_location(self.x - 1, self.y)
         if PlayerInput.is_key_down(pygame.K_RIGHT):
             self.set_location(self.x + 1, self.y)
+        if PlayerInput.is_key_down(pygame.K_UP):
+            self.set_location(self.x, self.y - 1)
+        if PlayerInput.is_key_down(pygame.K_DOWN):
+            self.set_location(self.x, self.y + 1)
