@@ -1,5 +1,5 @@
 import pygame
-from TestActor import TestActor
+import PlayerInput
 
 
 class GameLoop:
@@ -15,6 +15,7 @@ class GameLoop:
     def execute_event_loop(self):
         while self.running:
             for event in pygame.event.get():
+                PlayerInput.key_input_listener(event)
                 if event.type == pygame.QUIT:
                     running = False
             self.active_world.manage_actions()
