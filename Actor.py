@@ -62,6 +62,9 @@ class Actor:
         test_other_rect = other_rect.move(actor.x, actor.y)
         return test_rect.colliderect(test_other_rect)
 
+    def distance_from_point(self,x, y):
+        return math.sqrt( math.pow( (self.x - x), 2) +  math.pow( (self.x - x), 2) )
+
     def get_all_intersectors(self, type):
         intersectors = []
         actors = self.world.get_actors_of_type(type)
@@ -77,6 +80,18 @@ class Actor:
         if intersectors:
             return intersectors[0]
         return
+
+    def get_all_actors_in_range(self, type, radius):
+        in_range = []
+        actors = self.world.get_actors_of_type(type)
+        if self in actors:
+            actors.remove(self)
+        for actor in actors:
+            range = self.distance_from_point(actor.x, actor.y)
+            if range <= radius:
+                in_range.append(actor)
+        return in_range
+
 
 
 
