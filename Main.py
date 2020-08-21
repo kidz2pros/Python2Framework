@@ -11,3 +11,9 @@ height = 600
 game = GameLoop([TestWorld(width, height)])
 
 game.execute_event_loop()
+
+
+
+
+
+

@@ -2,6 +2,7 @@ import pygame
 from Actor import Actor
 import PlayerInput
 
+
 class TestActor(Actor):
 
     def __init__(self):
