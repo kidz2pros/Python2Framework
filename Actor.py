@@ -41,7 +41,7 @@ class Actor:
         self.display = pygame.transform.rotate(self.image, self.rotation)
 
     def rotate_image(self):
-        self.display = pygame.transform.rotate(self.image, self.rotation % 360)
+        self.display = pygame.transform.rotate(self.image, -self.rotation % 360)
 
     def draw_self(self, screen):
         screen.blit(self.display, (self.x,self.y))
